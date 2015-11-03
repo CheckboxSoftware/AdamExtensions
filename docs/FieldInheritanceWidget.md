@@ -1,4 +1,5 @@
-# Add the widget to the configured studio widgets
+# How to configure the FieldInheritanceWidget
+## Add the widget to the configured studio widgets
 * Go to System studio
 * In the System studio's menu, select Guides - Widgets
 * In the left section: select the studio where you want to install the widget
@@ -10,7 +11,7 @@
 ```
 * Click save
 
-# Put the widget on the home page of a studio
+## Put the widget on the home page of a studio
 Assuming you have ran through the steps above
 * Go to System studio
 * In the System studio's menu, select Guides - Widgets
