@@ -12,4 +12,4 @@ Project containing several extensions to the ADAM framework to make the life as 
   </providers>
 </studioExtensions>
 ```
-* you're set to go: just navigate to your ConfigStudio and type in {studioUrl}/FieldInheritances/{fieldName} (e.g.:http://localhost/System/FieldInheritances/myFieldName)
+* you're set to go: just browse to your ConfigStudio and change the URL to {studioUrl}/FieldInheritances/{fieldName} (e.g.:http://localhost/System/FieldInheritances/myFieldName)
