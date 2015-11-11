@@ -70,7 +70,7 @@ namespace CbxSw.AdamExtensions.ConfigStudio.Products.Inheritance
 			{
 				ds.TemplateControl = this;
 				ds.ID = "dsFieldInheritance";
-				ds.DataProviderType = "CbxSw.AdamExtensions.Products.Inheritance.FieldInheritanceDefinitionProvider, CbxSw.AdamExtensions";
+				ds.DataProviderType = typeof(FieldInheritanceDefinitionProvider).AssemblyQualifiedName;
 			});
 		}
 

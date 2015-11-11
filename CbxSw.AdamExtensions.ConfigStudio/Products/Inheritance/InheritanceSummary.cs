@@ -54,6 +54,11 @@ namespace CbxSw.AdamExtensions.ConfigStudio.Products.Inheritance
 		private void AddRights()
 		{
 			RightsContainer.Controls.Clear();
+			if (DataItem.Rights.Count == 0)
+			{
+				RightsContainer.AddLiteral("No rights available"); // TODO translate
+				return;
+			}
 			foreach (var fieldInheritanceRight in DataItem.Rights)
 			{
 				AddRightTo(RightsContainer, fieldInheritanceRight);
