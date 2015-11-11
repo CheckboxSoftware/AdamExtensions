@@ -71,7 +71,7 @@
             <add id="FieldInheritance">
               <actions>
                 <add id="ViewAll" type="Link" url="" />
-                <add id="CreateNew" type="Link" requiredRole=".RoleChangeSystemSettings" url="+" />
+                <!-- TODO: <add id="CreateNew" type="Link" requiredRole=".RoleChangeSystemSettings" url="+" />-->
               </actions>
             </add>
 <!-- TODO: STOP adding here -->
