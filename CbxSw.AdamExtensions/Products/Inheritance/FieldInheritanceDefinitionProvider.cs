@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Adam.Core.Fields;
 using Adam.Core.Search;
+using Adam.Pims.Core;
 using Adam.Pims.Core.Configuration;
 using Adam.Web.UI.DataSources;
 using Adam.Web.UI.DataSources.DataProviders;
@@ -42,6 +43,19 @@ namespace CbxSw.AdamExtensions.Products.Inheritance
 			return selectResult;
 		}
 
+		public override int QueryTotalRowCount(AdamDataSourceSelectingEventArgs arguments)
+		{
+			var amountOfFieldDefinitions = new FieldDefinitionHelper(App).GetMatches(arguments.SelectExpression, false);
+			if (arguments.MaximumRows != -1)
+			{
+				if (amountOfFieldDefinitions > arguments.MaximumRows)
+				{
+					return arguments.MaximumRows;
+				}
+			}
+			return amountOfFieldDefinitions;
+		}
+
 		private bool LoadFieldsPage(FieldDefinitionCollection definitionCollection, AdamDataSourceSelectingEventArgs arguments)
 		{
 			var pageNumber = arguments.PageNumber + 1;
@@ -61,7 +75,7 @@ namespace CbxSw.AdamExtensions.Products.Inheritance
 			return isLastPage;
 		}
 
-		private IEnumerable<FieldInheritanceDefinition> LoadDefinitionsFor(FieldDefinitionCollection fieldDefinitionCollection)
+		private IEnumerable<FieldInheritanceDefinitionInfo> LoadDefinitionsFor(FieldDefinitionCollection fieldDefinitionCollection)
 		{
 			var inheritances = new FieldInheritanceDefinitionCollection(App);
 			inheritances.Load(fieldDefinitionCollection.CopyIdsToArray());
@@ -71,16 +85,29 @@ namespace CbxSw.AdamExtensions.Products.Inheritance
 				var foundInheritance = inheritances.FirstOrDefault(x => x.FieldId == fieldId);
 				if (foundInheritance != null)
 				{
-					yield return foundInheritance;
+					yield return CreateInfoInstance(fieldDefinition, foundInheritance);
 				}
 				else
 				{
-					var inheritance = new FieldInheritanceDefinition(App);
-					inheritance.AddNew(fieldId);
-					inheritance.IsActive = false;
-					yield return inheritance;
+					yield return CreateInfoInstance(fieldDefinition);
 				}
 			}
+		}
+
+		private FieldInheritanceDefinitionInfo CreateInfoInstance(FieldDefinition field, FieldInheritanceDefinition inheritance = null)
+		{
+			return new FieldInheritanceDefinitionInfo
+			{
+				DataType = field.DataType,
+				FieldId = field.Id,
+				IsActive = inheritance?.IsActive ?? false,
+				Name = field.Name,
+				PropagationMode = inheritance?.PropagationMode ?? Execution.Delayed,
+				Rights = inheritance?.Rights ?? new FieldInheritanceRight[0],
+				Scope = field.Scope,
+				Label = field.Label,
+				Labels = field.Labels,
+			};
 		}
 	}
 }

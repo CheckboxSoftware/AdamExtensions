@@ -3,7 +3,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Adam.Pims.Core.Configuration;
 using Adam.Web.ConfigStudio.Controls;
-using Adam.Web.Extensions.UI.Controls;
 using Adam.Web.Localization;
 using Adam.Web.Studio.UI;
 using Adam.Web.Studio.UI.Controls;
@@ -17,7 +16,7 @@ namespace CbxSw.AdamExtensions.Products.Inheritance
 	/// Control that displays the <see cref="FieldInheritanceDefinition"/> of one <see cref="Adam.Core.Fields.FieldDefinition"/>.
 	/// This control only displays the info of a <see cref="FieldInheritanceDefinition"/>, it doesn't show anything but the <see cref="FieldInheritanceDefinition"/>.
 	/// </summary>
-	public class InheritanceSummary : BindableUserControl<FieldInheritanceDefinition>, ISkipControlBinding
+	public class InheritanceSummary : BindableUserControl<FieldInheritanceDefinitionInfo>, ISkipControlBinding
 	{
 		private Translator _fieldsTranslator;
 
@@ -68,7 +67,9 @@ namespace CbxSw.AdamExtensions.Products.Inheritance
 			generalSection.AddGeneric("table", table =>
 			{
 				table.AddClass("summary-grid");
-				InitializeIdIn(table);
+				InitializeNameIn(table);
+				InitializeDataTypeIn(table);
+				InitializeScopeIn(table);
 				InitializePropagationModeIn(table);
 				InitializeIsActiveIn(table);
 			});
@@ -90,57 +91,76 @@ namespace CbxSw.AdamExtensions.Products.Inheritance
 							cbx.Text = "Is active";
 							cbx.EnableViewState = false;
 						});
-						div.AddControl(new PropertyBinder(), bndr =>
-						{
-							bndr.ID = "bndrIsActive";
-							bndr.TargetControlID = "cbxIsActive";
-							bndr.DataField = "IsActive";
-						});
+						div.AddPropertyBinder("cbxIsActive", "IsActive");
 					});
 				});
 			});
 		}
 
-		private static void InitializeIdIn(Control table)
+		private void InitializeNameIn(Control table)
 		{
 			table.AddGeneric("tr", row =>
 			{
-				InitializeLabelIn(row, "ID", "lblId"); // TODO: translate
-				InitializeControlIn(row, container =>
+				row.AddLabelCell(FieldsTranslator.Translate("Name.Text"), "lblFieldName");
+				row.AddControlCell(cell =>
 				{
-					container.AddControl(new Label(), lblId =>
+					cell.AddControl(new Label(), lblId =>
 					{
-						lblId.ID = "lblId";
+						lblId.ID = "lblFieldName";
 						lblId.EnableViewState = false;
 					});
-					container.AddControl(new PropertyBinder(), bndrName =>
-					{
-						bndrName.ID = "lblIdBinder";
-						bndrName.TargetControlID = "lblId";
-						bndrName.DataField = "Id";
-					});
+					cell.AddPropertyBinder("lblFieldName", "Name");
 				});
 			});
 		}
 
-		private static void InitializePropagationModeIn(Control table)
+		private void InitializeDataTypeIn(Control table)
 		{
 			table.AddGeneric("tr", row =>
 			{
-				InitializeLabelIn(row, "Propagation mode", "lblPropagationMode"); // TODO: translate
-				InitializeControlIn(row, container =>
+				row.AddLabelCell(FieldsTranslator.Translate("DataType.Text"), "lblDataType");
+				row.AddControlCell(cell =>
+				{
+					cell.AddControl(new Label(), lbl =>
+					{
+						lbl.ID = "lblDataType";
+						lbl.EnableViewState = false;
+					});
+					cell.AddPropertyBinder("lblDataType", "DataType", bndr => bndr.DisplayConversions.Add(new EnumerationTranslation()));
+				});
+			});
+		}
+
+		private void InitializeScopeIn(Control table)
+		{
+			table.AddGeneric("tr", row =>
+			{
+				row.AddLabelCell(FieldsTranslator.Translate("Scope.Text"), "lblScope");
+				row.AddControlCell(container =>
 				{
 					container.AddControl(new Label(), lblId =>
+					{
+						lblId.ID = "lblScope";
+						lblId.EnableViewState = false;
+					});
+					container.AddPropertyBinder("lblScope", "Scope", bndr => bndr.DisplayConversions.Add(new EnumerationTranslation()));
+				});
+			});
+		}
+
+		private void InitializePropagationModeIn(Control table)
+		{
+			table.AddGeneric("tr", row =>
+			{
+				row.AddLabelCell("Propagation mode", "lblPropagationMode"); // TODO: translate
+				row.AddControlCell(cell =>
+				{
+					cell.AddControl(new Label(), lblId =>
 						{
 							lblId.ID = "lblPropagationMode";
 							lblId.EnableViewState = false;
 						});
-					container.AddControl(new EnumerationPropertyBinder(), bndrName =>
-					{
-						bndrName.ID = "lblPropagationModeBinder";
-						bndrName.TargetControlID = "lblPropagationMode";
-						bndrName.DataField = "PropagationMode";
-					});
+					cell.AddPropertyBinder("lblPropagationMode", "PropagationMode");
 				});
 			});
 		}
@@ -156,24 +176,24 @@ namespace CbxSw.AdamExtensions.Products.Inheritance
 					itmTable.AddClass("summary-grid");
 					itmTable.AddGeneric("tr", row =>
 					{
-						InitializeLabelIn(row, "Classification"); // TODO translate
-						InitializeControlIn(row, cell =>
+						row.AddLabelCell("Classification"); // TODO translate
+						row.AddControlCell(cell =>
 						{
 							cell.AddLiteral(DisplayValueFor(right.Classification));
 						});
 					});
 					itmTable.AddGeneric("tr", row =>
 					{
-						InitializeLabelIn(row, "User group"); // TODO translate
-						InitializeControlIn(row, cell =>
+						row.AddLabelCell("User group"); // TODO translate
+						row.AddControlCell(cell =>
 						{
 							cell.AddLiteral(DisplayValueFor(right.UserGroup)); // TODO translate
 						});
 					});
 					itmTable.AddGeneric("tr", row =>
 					{
-						InitializeLabelIn(row, "Permission"); // TODO translate
-						InitializeControlIn(row, cell =>
+						row.AddLabelCell("Permission"); // TODO translate
+						row.AddControlCell(cell =>
 						{
 							cell.AddLiteral(right.Permission.ToString());
 						});
@@ -198,36 +218,6 @@ namespace CbxSw.AdamExtensions.Products.Inheritance
 			RightsContainer = rightsSection.AddGeneric("div", div =>
 			{
 				div.AddClass("rights");
-			});
-		}
-
-		private static void InitializeLabelIn(Control row, string label, string controlId = null)
-		{
-			row.AddGeneric("td", cell =>
-			{
-				cell.AddClass("label");
-				cell.AddControl(new Label(), lbl =>
-				{
-					if (controlId != null)
-					{
-						lbl.AssociatedControlID = controlId;
-					}
-					lbl.Text = label;
-					lbl.EnableViewState = false;
-				});
-			});
-		}
-
-		private static void InitializeControlIn(Control row, Action<Control> addControls)
-		{
-			row.AddGeneric("td", ctrl =>
-			{
-				ctrl.AddClass("control");
-				ctrl.AddGeneric("div", div =>
-				{
-					div.AddClass("property-text-ro");
-					addControls.Invoke(div);
-				});
 			});
 		}
 	}

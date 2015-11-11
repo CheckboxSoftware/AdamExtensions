@@ -17,12 +17,12 @@
         <language name="English">Edit field inheritance definition</language>
       </translation>-->
 
-      <!--<translation name="SearchExpression.DefaultTemplate">
-        <language name="English">All field definitions</language>
+      <translation name="SearchExpression.DefaultTemplate">
+        <language name="English">All field inheritance definitions</language>
       </translation>
       <translation name="SearchExpression.ContainingTemplate">
         <language name="English">Field inheritance definitions matching '{0}'</language>
-      </translation>-->
+      </translation>
     </module>
     <module name="StudioNavigation">
       <translation name="FieldInheritance.CreateNewText">

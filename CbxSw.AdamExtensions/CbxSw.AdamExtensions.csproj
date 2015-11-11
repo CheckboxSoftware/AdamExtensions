@@ -74,7 +74,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Products\Inheritance\FieldInheritanceDefinitionDataProvider.cs" />
+    <Compile Include="ControlExtensions.cs" />
+    <Compile Include="Products\Inheritance\FieldInheritanceDefinitionInfo.cs" />
+    <Compile Include="Products\Inheritance\FieldInheritanceDefinitionProvider.cs" />
+    <Compile Include="Products\Inheritance\InheritanceSearchPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Products\Inheritance\InheritanceSummary.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

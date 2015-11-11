@@ -3,8 +3,6 @@ using System.Web;
 using System.Web.Routing;
 using System.Web.SessionState;
 using System.Web.UI;
-using Adam.Core.Fields;
-using Adam.Pims.Core.Configuration;
 using Adam.Web.ConfigStudio;
 using Adam.Web.ConfigStudio.Pages;
 using Adam.Web.ConfigStudio.UI.FieldDefinitions;
@@ -17,14 +15,13 @@ using Adam.Web.UI.DataSources;
 namespace CbxSw.AdamExtensions.Products.Inheritance
 {
 	/// <summary>
-	/// The page that will display one <see cref="FieldInheritanceDefinition"/> in readonly mode.
+	/// The page that will display one <see cref="Adam.Pims.Core.Configuration.FieldInheritanceDefinition"/> in readonly mode.
 	/// This is where headers, actions, ... are added.
 	/// </summary>
-	public class InheritanceViewPage : ConfigStudioViewPage<FieldInheritanceDefinition>, IRequiresSessionState, IHttpHandler
+	public class InheritanceViewPage : ConfigStudioViewPage<FieldInheritanceDefinitionInfo>, IRequiresSessionState, IHttpHandler
 	{
 		private ConfigStudioFormView _formView;
 		private AdamDataSource _dataSource;
-		private FieldDefinition _fieldDefinition;
 
 		public InheritanceViewPage()
 		{
@@ -78,24 +75,14 @@ namespace CbxSw.AdamExtensions.Products.Inheritance
 			});
 		}
 
-		private FieldDefinition FieldDefinition(FieldInheritanceDefinition dataItem)
+		protected override RouteValueDictionary GetDataItemRouteValues(FieldInheritanceDefinitionInfo dataItem)
 		{
-			if (_fieldDefinition == null)
-			{
-				_fieldDefinition = new FieldDefinitionHelper(dataItem.App).GetFieldDefinition(dataItem.FieldId);
-			}
-			return _fieldDefinition;
+			return CreateRouteValues(dataItem.FieldId, dataItem.Name);
 		}
 
-		protected override RouteValueDictionary GetDataItemRouteValues(FieldInheritanceDefinition dataItem)
+		protected override string GetDataItemTitle(FieldInheritanceDefinitionInfo dataItem)
 		{
-			var fieldName = FieldDefinition(dataItem)?.Name;
-			return this.CreateRouteValues(dataItem.Id, fieldName);
-		}
-
-		protected override string GetDataItemTitle(FieldInheritanceDefinition dataItem)
-		{
-			return FieldDefinition(dataItem).Label;
+			return dataItem.Label;
 		}
 		protected override void ConfigureToolbar(StudioActionToolbar toolbar)
 		{
