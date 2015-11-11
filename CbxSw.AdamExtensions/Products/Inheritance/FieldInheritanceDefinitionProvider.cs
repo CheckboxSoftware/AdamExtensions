@@ -8,7 +8,7 @@ using Adam.Pims.Core.Configuration;
 using Adam.Web.UI.DataSources;
 using Adam.Web.UI.DataSources.DataProviders;
 
-namespace CbxSw.AdamExtensions.Products.Inheritance
+namespace CbxSw.AdamExtensions.ConfigStudio.Products.Inheritance
 {
 	/// <summary>
 	/// A <see cref="DataProvider"/> that is responsible for loading <see cref="FieldInheritanceDefinition"/> instances via a <see cref="AdamDataSource"/>.

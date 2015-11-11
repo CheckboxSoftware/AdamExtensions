@@ -1,8 +1,9 @@
 using Adam.Web.Studio;
 using Adam.Web.Studio.Extensibility;
 using Adam.Web.Studio.Routing;
+using CbxSw.AdamExtensions.ConfigStudio.Products.Inheritance;
 
-namespace CbxSw.AdamExtensions
+namespace CbxSw.AdamExtensions.ConfigStudio
 {
 	/// <summary>
 	/// A class that we will configure in the Web.Config of ConfigStudio, telling ADAM to call <see cref="Configure"/> when the studio starts.
@@ -13,12 +14,12 @@ namespace CbxSw.AdamExtensions
 	/// <code>
 	///   &lt;studioExtensions&gt;
 	///	    &lt;providers&gt;
-	///	      &lt;add type = "CbxSw.AdamExtensions.ConfigStudioStartup, CbxSw.AdamExtensions" /&gt;
+	///	      &lt;add type = "CbxSw.AdamExtensions.ConfigStudio.Startup, CbxSw.AdamExtensions" /&gt;
 	///     &lt;/providers&gt;
 	///   &lt;/studioExtensions&gt;
 	/// </code>
 	/// </remarks>
-	public class ConfigStudioStartup : StudioExtension
+	public class Startup : StudioExtension
 	{
 		private static readonly object _lock = new object();
 		private static bool _hasStarted = false;
@@ -51,9 +52,8 @@ namespace CbxSw.AdamExtensions
 			// HINT: comment out the code below if you don't have a license for Products
 			const string routePrefix = "FieldInheritance";
 			// TODO: add pages for searching, adding and editing inheritance
-			Routes.AddPage<Products.Inheritance.InheritanceSearchPage>(routePrefix);
-			//Routes.AddPage<Products.Inheritance.InheritanceCreatePage>(routePrefix + "/+");
-			Routes.AddPage<Products.Inheritance.InheritanceViewPage>(routePrefix + "/{id}");
+			Routes.AddPage<InheritanceSearchPage>(routePrefix);
+			Routes.AddPage<InheritanceViewPage>(routePrefix + "/{id}");
 			//Routes.AddPage<Products.Inheritance.InheritanceEditPage>(routePrefix + "/{id}/Edit");
 		}
 	}

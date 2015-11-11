@@ -5,14 +5,13 @@ using System.Web.SessionState;
 using System.Web.UI;
 using Adam.Web.ConfigStudio;
 using Adam.Web.ConfigStudio.Pages;
-using Adam.Web.ConfigStudio.UI.FieldDefinitions;
 using Adam.Web.Studio;
 using Adam.Web.Studio.Routing;
 using Adam.Web.Studio.UI.Controls;
 using Adam.Web.Tools.Fluent;
 using Adam.Web.UI.DataSources;
 
-namespace CbxSw.AdamExtensions.Products.Inheritance
+namespace CbxSw.AdamExtensions.ConfigStudio.Products.Inheritance
 {
 	/// <summary>
 	/// The page that will display one <see cref="Adam.Pims.Core.Configuration.FieldInheritanceDefinition"/> in readonly mode.
@@ -30,7 +29,7 @@ namespace CbxSw.AdamExtensions.Products.Inheritance
 
 		protected override StudioFormView FormView => _formView;
 		protected override AdamDataSource DataSource => _dataSource;
-		protected override Route SearchRoute => Routes.For<Search>(); // TODO: make this our field inheritance search page
+		protected override Route SearchRoute => Routes.For<InheritanceSearchPage>();
 		protected override int VisibleActionGroups => 0;
 		protected override Type SummaryUserControl => typeof(InheritanceSummary);
 

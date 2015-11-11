@@ -11,7 +11,7 @@ using Adam.Web.Studio;
 using Adam.Web.Studio.Routing;
 using Adam.Web.Studio.UI.Controls;
 
-namespace CbxSw.AdamExtensions.Products.Inheritance
+namespace CbxSw.AdamExtensions.ConfigStudio.Products.Inheritance
 {
 	public class InheritanceSearchPage : ConfigStudioSearchPage<FieldInheritanceDefinitionInfo>, IRequiresSessionState, IHttpHandler
 	{

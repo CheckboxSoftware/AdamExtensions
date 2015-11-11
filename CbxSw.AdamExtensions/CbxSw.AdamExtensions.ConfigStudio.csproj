@@ -7,8 +7,8 @@
     <ProjectGuid>{0663EC00-C1CB-4332-8975-07BC298EC90E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CbxSw.AdamExtensions</RootNamespace>
-    <AssemblyName>CbxSw.AdamExtensions</AssemblyName>
+    <RootNamespace>CbxSw.AdamExtensions.ConfigStudio</RootNamespace>
+    <AssemblyName>CbxSw.AdamExtensions.ConfigStudio</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -97,7 +97,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy $(TargetDir)$(TargetFileName) D:\ADAM\ADAM_5.4.0.0\ADAM_5400\Studios\System\bin\* /Y</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CbxSw.AdamExtensions")]
+[assembly: AssemblyTitle("CbxSw.AdamExtensions.ConfigStudio")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Checkbox Software")]
-[assembly: AssemblyProduct("CbxSw.AdamExtensions")]
+[assembly: AssemblyProduct("CbxSw.AdamExtensions.ConfigStudio")]
 [assembly: AssemblyCopyright("Copyright © Checkbox Software 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

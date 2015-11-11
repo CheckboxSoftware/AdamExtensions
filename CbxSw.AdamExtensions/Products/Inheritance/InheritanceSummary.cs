@@ -10,7 +10,7 @@ using Adam.Web.Tools.Fluent;
 using Adam.Web.UI;
 using Adam.Web.UI.Controls;
 
-namespace CbxSw.AdamExtensions.Products.Inheritance
+namespace CbxSw.AdamExtensions.ConfigStudio.Products.Inheritance
 {
 	/// <summary>
 	/// Control that displays the <see cref="FieldInheritanceDefinition"/> of one <see cref="Adam.Core.Fields.FieldDefinition"/>.

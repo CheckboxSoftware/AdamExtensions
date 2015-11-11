@@ -6,7 +6,7 @@ using Adam.Pims.Core;
 using Adam.Pims.Core.Configuration;
 using LabelItemCollection = Adam.Core.LabelItemCollection;
 
-namespace CbxSw.AdamExtensions.Products.Inheritance
+namespace CbxSw.AdamExtensions.ConfigStudio.Products.Inheritance
 {
 	public class FieldInheritanceDefinitionInfo : IObjectId
 	{

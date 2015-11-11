@@ -6,7 +6,7 @@ using Adam.Web.Studio.UI.Controls;
 using Adam.Web.Tools.Fluent;
 using Adam.Web.UI.Controls;
 
-namespace CbxSw.AdamExtensions
+namespace CbxSw.AdamExtensions.ConfigStudio
 {
 	public static class ControlExtensions
 	{
