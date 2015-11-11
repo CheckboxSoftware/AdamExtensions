@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControlExtensions.cs" />
+    <Compile Include="EmbeddedCss.cs" />
     <Compile Include="Products\Inheritance\FieldInheritanceDefinitionInfo.cs" />
     <Compile Include="Products\Inheritance\FieldInheritanceDefinitionProvider.cs" />
     <Compile Include="Products\Inheritance\InheritanceSearchPage.cs">
@@ -94,6 +95,9 @@
     <None Include="Products\Inheritance\translations.xml">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Products\Inheritance\Inheritance.css" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

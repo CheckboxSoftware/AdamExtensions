@@ -3,6 +3,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Adam.Pims.Core.Configuration;
 using Adam.Web.ConfigStudio.Controls;
+using Adam.Web.Extensions.UI.Controls;
 using Adam.Web.Localization;
 using Adam.Web.Studio.UI;
 using Adam.Web.Studio.UI.Controls;
@@ -32,6 +33,7 @@ namespace CbxSw.AdamExtensions.ConfigStudio.Products.Inheritance
 		protected override void OnInit(EventArgs e)
 		{
 			base.OnInit(e);
+			AdamManager.GetCurrent(this).RequireStyleSheet(StyleSheets.Get(Css.Inheritance));
 			InitializeContentIn(this);
 		}
 
@@ -175,7 +177,6 @@ namespace CbxSw.AdamExtensions.ConfigStudio.Products.Inheritance
 			container.AddGeneric("div", itm =>
 			{
 				itm.AddClass("item");
-				itm.Style.Add("border-top", "1px solid #E7E9EB;"); // TODO: move this to css
 				itm.AddGeneric("table", itmTable =>
 				{
 					itmTable.AddClass("summary-grid");
