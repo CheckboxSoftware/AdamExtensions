@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CbxSw.AdamExtensions.ConfigStudio", "CbxSw.AdamExtensions\CbxSw.AdamExtensions.ConfigStudio.csproj", "{0663EC00-C1CB-4332-8975-07BC298EC90E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CbxSw.AdamExtensions.ConfigStudio", "CbxSw.AdamExtensions.ConfigStudio\CbxSw.AdamExtensions.ConfigStudio.csproj", "{0663EC00-C1CB-4332-8975-07BC298EC90E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
