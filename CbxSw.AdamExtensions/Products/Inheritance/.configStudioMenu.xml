@@ -1,0 +1,231 @@
+<!-- TODO ADD the section in path: studioMenu/groups/add/items/add[@id=FieldManagement]/contexts/add[@id=FieldInheritance to .configStudioMenu -->
+<!-- -->
+<studioMenu priority="100" adapterType="Adam.Web.ConfigStudio.MenuDescriptor, Adam.Web.ConfigStudio">
+  <groups>
+    <add>
+      <items>
+        <add id="Guides">
+          <contexts>
+            <add id="MultiFileUpload">
+              <actions>
+                <add id="Manage" type="Link" requiredRole=".RoleCanManageUploadMultipleFiles" url="~/Guides/MultiFileUpload" />
+              </actions>
+            </add>
+            <add id="FileStores">
+              <actions>
+                <add id="Manage" type="Link" requiredRole=".RoleManageFileStores" url="~/Guides/FileStores" />
+              </actions>
+            </add>
+            <add id="Satellites">
+              <actions>
+                <add id="Manage" type="Link" requiredRole=".RoleManageSatellites" url="~/Guides/Satellites" />
+              </actions>
+            </add>
+            <add id="Studios">
+              <actions>
+                <add id="Widgets" type="Link" requiredRole=".RoleChangeSystemSettings" url="~/Guides/Widgets" />
+                <add id="Spaces" type="Link" requiredRole=".RoleChangeSystemSettings" url="~/Guides/Spaces" />
+                <add id="Facets" type="Link" requiredRole=".RoleChangeSystemSettings" url="~/Guides/Facets" />
+              </actions>
+            </add>
+          </contexts>
+        </add>
+        <add id="UserManagement">
+          <contexts>
+            <add id="Users">
+              <actions>
+                <add id="ViewAll" type="Link" url="" />
+                <add id="CreateNew" type="Link" requiredRole=".RoleCreateUsers" url="+" />
+                <add id="DebugPermissions" type="Link" url="~/Advanced/Debuggers/UserPermissions" />
+              </actions>
+            </add>
+            <add id="UserGroups">
+              <actions>
+                <add id="ViewAll" type="Link" url="" />
+                <add id="CreateNew" type="Link" requiredRole=".RoleCreateUserGroups" url="+" />
+              </actions>
+            </add>
+            <add id="Organizations">
+              <actions>
+                <add id="ViewAll" type="Link" url="" />
+                <add id="CreateNew" type="Link" requiredRole=".RoleCreateOrganizations" url="+" />
+              </actions>
+            </add>
+          </contexts>
+        </add>
+        <add id="FieldManagement">
+          <contexts>
+            <add id="FieldDefinitions">
+              <actions>
+                <add id="ViewAll" type="Link" url="" />
+                <add id="CreateNew" type="Link" requiredRole=".RoleCreateFieldDefinitions" url="+" />
+              </actions>
+            </add>
+            <add id="FieldGroups">
+              <actions>
+                <add id="ViewAll" type="Link" url="" />
+                <add id="CreateNew" type="Link" requiredRole=".RoleCreateFieldGroups" url="+" />
+              </actions>
+            </add>
+<!-- TODO: ADD the section below to the setting -->
+            <add id="FieldInheritance">
+              <actions>
+                <add id="ViewAll" type="Link" url="" />
+                <add id="CreateNew" type="Link" requiredRole=".RoleChangeSystemSettings" url="+" />
+              </actions>
+            </add>
+<!-- TODO: STOP adding here -->
+          </contexts>
+        </add>
+        <add id="SettingManagement">
+          <contexts>
+            <add id="SystemSettings">
+              <actions>
+                <add id="ViewAll" type="Link" requiredRole=".RoleChangeSystemSettings" url="~/Settings" />
+              </actions>
+            </add>
+            <add id="SettingDefinitions">
+              <actions>
+                <add id="ViewAll" type="Link" url="" />
+                <add id="CreateNew" type="Link" requiredRole=".RoleCreateSettingDefinitions" url="+" />
+              </actions>
+            </add>
+            <add id="SettingCategories">
+              <actions>
+                <add id="ViewAll" type="Link" url="" />
+                <add id="CreateNew" type="Link" requiredRole=".RoleCreateSettingCategories" url="+" />
+              </actions>
+            </add>
+          </contexts>
+        </add>
+        <add id="AssetRelatedManagement">
+          <contexts>
+            <add id="Classifications">
+              <actions>
+                <add id="ViewAll" type="Link" url="" />
+                <add id="ClassificationMappings" type="Link" url="~/Advanced/ClassificationMappings" />
+                <add id="CreateNew" type="Link" url="+" />
+                <add id="DebugPermissions" type="Link" url="~/Advanced/Debuggers/ClassificationPermissions" />
+              </actions>
+            </add>
+            <add id="FileTypes">
+              <actions>
+                <add id="ViewAll" type="Link" url="" />
+                <add id="CreateNew" type="Link" requiredRole=".RoleCreateFileTypes" url="+" />
+              </actions>
+            </add>
+            <add id="Watermarks">
+              <actions>
+                <add id="ViewAll" type="Link" url="" />
+                <add id="CreateNew" type="Link" requiredRole=".RoleCreateWatermarks" url="+" />
+              </actions>
+            </add>
+            <add id="Indexers">
+              <actions>
+                <add id="ViewAll" type="Link" url="" />
+                <add id="CreateNew" type="Link" requiredRole=".RoleCreateIndexers" url="+" />
+              </actions>
+            </add>
+          </contexts>
+        </add>
+        <add id="LocalizationManagement">
+          <contexts>
+            <add id="Translations">
+              <actions>
+                <add id="ViewAll" type="Link" url="" />
+                <add id="CreateNew" type="Link" requiredRole=".RoleCreateTranslations" url="+" />
+              </actions>
+            </add>
+            <add id="Languages">
+              <actions>
+                <add id="ViewAll" type="Link" url="" />
+                <add id="CreateNew" type="Link" requiredRole=".RoleCreateLanguages" url="+" />
+              </actions>
+            </add>
+          </contexts>
+        </add>
+      </items>
+    </add>
+    <add>
+      <items>
+        <add id="DataManagement">
+          <contexts>
+            <add id="WarehouseTableSets">
+              <actions>
+                <add id="ViewAll" type="Link" url="" />
+                <add id="CreateNew" requiredRole=".RoleManageWarehouses" type="Link" url="+" />
+              </actions>
+            </add>
+            <add id="WarehouseDatabases">
+              <actions>
+                <add id="ViewAll" type="Link" url="~/WarehouseDatabases/" />
+              </actions>
+            </add>
+            <add id="Publications">
+              <actions>
+                <add id="ViewAll" type="Link" url="" />
+                <add id="CreateNew" requiredRole=".RoleManagePublications" type="Link" url="+" />
+              </actions>
+            </add>
+            <add id="Subscriptions">
+              <actions>
+                <add id="ViewAll" type="Link" url="" />
+                <add id="CreateNew" requiredRole=".RoleManageSubscriptions" type="Link" url="+" />
+              </actions>
+            </add>
+            <add id="FileStores">
+              <actions>
+                <add id="ViewAll" type="Link" url="" />
+                <add id="CreateNew" type="Link" requiredRole=".RoleManageFileStores" url="+" />
+              </actions>
+            </add>
+            <add id="Satellites">
+              <actions>
+                <add id="ViewAll" type="Link" url="" />
+                <add id="CreateNew" type="Link" url="+" requiredRole=".RoleManageSatellites" />
+              </actions>
+            </add>
+          </contexts>
+        </add>
+      </items>
+    </add>
+    <add>
+      <items>
+        <add id="AdvancedManagement">
+          <contexts>
+            <add id="Sites">
+              <actions>
+                <add id="ViewAll" type="Link" url="" />
+                <add id="CreateNew" type="Link" requiredRole=".RoleCreateSites" url="+" />
+              </actions>
+            </add>
+            <add id="Rules">
+              <actions>
+                <add id="ViewAll" type="Link" url="" />
+                <add id="CreateNew" type="Link" requiredRole=".RoleCreateRules" url="+" />
+              </actions>
+            </add>
+            <add id="Baskets">
+              <actions>
+                <add id="ViewAll" type="Link" url="~/Collections/" />
+                <add id="CreateNew" type="Link" url="~/Collections/+" />
+              </actions>
+            </add>
+            <add id="System">
+              <actions>
+                <add id="ApplicationLog" type="Link" url="~/Advanced/ApplicationLog" />
+                <add id="JobLog" type="Link" url="~/Jobs/" />
+                <add id="PublishSubscribeLog" type="Link" url="~/Advanced/PublishSubscribeLog" />
+                <add id="Imports" type="Link" url="~/Imports/" />
+                <add id="DataBase" type="Link" url="~/Advanced/Database" />
+              </actions>
+            </add>
+          </contexts>
+        </add>
+      </items>
+    </add>
+  </groups>
+  <favoriteStudios>
+    <add name="AssetStudio" />
+  </favoriteStudios>
+</studioMenu>

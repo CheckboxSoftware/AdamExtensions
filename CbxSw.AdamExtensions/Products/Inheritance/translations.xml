@@ -1,0 +1,42 @@
+﻿<!-- TODO: import these translations via command line: 
+	More info on how to import xml translations: Adam.Core.CommandLine.exe ImportTranslations -?
+-->
+<translations version="2.0">
+  <studio name="ConfigStudio" deleteStudioTranslationsNotImported="false">
+    <module name="FieldInheritance">
+      <translation name="ViewPage.Purpose">
+        <language name="English">Field inheritance definition</language>
+      </translation>
+      <!--<translation name="SearchPage.Purpose">
+        <language name="English"></language>
+      </translation>
+      <translation name="CreatePage.Purpose">
+        <language name="English">Create a field inheritance definition</language>
+      </translation>
+      <translation name="EditPage.Purpose">
+        <language name="English">Edit field inheritance definition</language>
+      </translation>-->
+
+      <!--<translation name="SearchExpression.DefaultTemplate">
+        <language name="English">All field definitions</language>
+      </translation>
+      <translation name="SearchExpression.ContainingTemplate">
+        <language name="English">Field inheritance definitions matching '{0}'</language>
+      </translation>-->
+    </module>
+    <module name="StudioNavigation">
+      <translation name="FieldInheritance.CreateNewText">
+        <language name="English">Create a new field inheritance definition</language>
+      </translation>
+      <translation name="FieldDefinitions.SearchInstruction">
+        <language name="English">Search for field inheritance definitions by its name or label</language>
+      </translation>
+      <translation name="FieldInheritance.ViewAllText">
+        <language name="English">View all field inheritance definitions</language>
+      </translation>
+      <translation name="FieldInheritance.Title">
+        <language name="English">Field inheritance definitions</language>
+      </translation>
+    </module>
+  </studio>
+</translations>

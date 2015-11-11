@@ -16,6 +16,10 @@ using Adam.Web.UI.DataSources;
 
 namespace CbxSw.AdamExtensions.Products.Inheritance
 {
+	/// <summary>
+	/// The page that will display one <see cref="FieldInheritanceDefinition"/> in readonly mode.
+	/// This is where headers, actions, ... are added.
+	/// </summary>
 	public class InheritanceViewPage : ConfigStudioViewPage<FieldInheritanceDefinition>, IRequiresSessionState, IHttpHandler
 	{
 		private ConfigStudioFormView _formView;
@@ -26,6 +30,12 @@ namespace CbxSw.AdamExtensions.Products.Inheritance
 		{
 			AppRelativeVirtualPath = "~/UI/FieldInheritance/View.aspx"; // making sure no aspx file is required (I know it looks strange but it works)
 		}
+
+		protected override StudioFormView FormView => _formView;
+		protected override AdamDataSource DataSource => _dataSource;
+		protected override Route SearchRoute => Routes.For<Search>(); // TODO: make this our field inheritance search page
+		protected override int VisibleActionGroups => 0;
+		protected override Type SummaryUserControl => typeof(InheritanceSummary);
 
 		/// <summary>
 		/// Initializes the control tree during page generation based on the declarative nature of the page. 
@@ -45,7 +55,10 @@ namespace CbxSw.AdamExtensions.Products.Inheritance
 			AddContentTemplate("PageContent", new CompiledTemplateBuilder(InitializeContentIn));
 		}
 
-		private void InitializeHeaderIn(Control container) { }
+		private void InitializeHeaderIn(Control container)
+		{
+			// intentionally left blank
+		}
 
 		private void InitializeContentIn(Control container)
 		{
@@ -61,7 +74,7 @@ namespace CbxSw.AdamExtensions.Products.Inheritance
 			{
 				ds.TemplateControl = this;
 				ds.ID = "dsFieldInheritance";
-				ds.DataProviderType = "Adam.Web.UI.DataSources.DataProviders.FieldDefinitionProvider, Adam.Web"; // TODO: add a field inheritance data provider
+				ds.DataProviderType = "CbxSw.AdamExtensions.Products.Inheritance.FieldInheritanceDefinitionProvider, CbxSw.AdamExtensions";
 			});
 		}
 
@@ -69,7 +82,7 @@ namespace CbxSw.AdamExtensions.Products.Inheritance
 		{
 			if (_fieldDefinition == null)
 			{
-				_fieldDefinition= new FieldDefinitionHelper(dataItem.App).GetFieldDefinition(dataItem.FieldId);
+				_fieldDefinition = new FieldDefinitionHelper(dataItem.App).GetFieldDefinition(dataItem.FieldId);
 			}
 			return _fieldDefinition;
 		}
@@ -84,16 +97,8 @@ namespace CbxSw.AdamExtensions.Products.Inheritance
 		{
 			return FieldDefinition(dataItem).Label;
 		}
-
-		protected override StudioFormView FormView => _formView;
-
-		protected override AdamDataSource DataSource => _dataSource;
-		protected override Route SearchRoute => Routes.For<Search>(); // TODO: make this our field inheritance search page
 		protected override void ConfigureToolbar(StudioActionToolbar toolbar)
 		{
 		}
-
-		protected override int VisibleActionGroups => 0;
-		protected override Type SummaryUserControl => typeof (InheritanceSummary);
 	}
 }

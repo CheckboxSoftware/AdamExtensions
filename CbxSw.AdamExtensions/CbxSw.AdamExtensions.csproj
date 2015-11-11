@@ -74,6 +74,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Products\Inheritance\FieldInheritanceDefinitionDataProvider.cs" />
     <Compile Include="Products\Inheritance\InheritanceSummary.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -82,6 +83,12 @@
     </Compile>
     <Compile Include="StudioStartup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Products\Inheritance\.configStudioMenu.xml" />
+    <None Include="Products\Inheritance\translations.xml">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
