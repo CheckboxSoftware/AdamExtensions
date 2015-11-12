@@ -25,7 +25,7 @@ namespace CbxSw.AdamExtensions.ConfigStudio.Products.Inheritance
 		protected override Type DataProviderType => typeof(FieldInheritanceDefinitionProvider);
 		protected override RoleType? RequiredCreateRole => RoleType.ChangeSystemSettings;
 		protected override Route SearchRoute => Routes.For<InheritanceSearchPage>();
-		protected override Route CreateRoute => Routes.For<Adam.Web.ConfigStudio.UI.FieldDefinitions.Create>(); // TODO: No create page (yet)
+		protected override Route CreateRoute => Routes.For<Adam.Web.ConfigStudio.UI.FieldDefinitions.Create>(); // No create page, so taken the route to create FieldDefinition
 		protected override Route ViewRoute => Routes.For<InheritanceViewPage>();
 		private Translator FieldsTranslator => _fieldsTranslator ?? (_fieldsTranslator = Translator.GetGlobalTranslator("FieldDefinitions"));
 
@@ -36,8 +36,8 @@ namespace CbxSw.AdamExtensions.ConfigStudio.Products.Inheritance
 
 		protected override bool CanCreateItems()
 		{
-			return false; // TODO: No create page (yet)
-			//return base.CanCreateItems();
+			// No create page
+			return false;
 		}
 
 		protected override void FrameworkInitialize()
@@ -64,11 +64,11 @@ namespace CbxSw.AdamExtensions.ConfigStudio.Products.Inheritance
 			{
 				Name = "IsActive",
 				InitialVisible = true,
-				Header = "Is active", // TODO translate
+				Header = Translator.Translate("ColumnIsActive.HeaderText"),
 				Path = "IsActive",
 				CssClass = "column-isactive",
-				TrueText = studioTranslator.Translate("Yes.Text"),
-				FalseText = studioTranslator.Translate("No.Text")
+				TrueText = Translator.Translate("Yes.Text"),
+				FalseText = Translator.Translate("No.Text")
 			};
 			return column;
 		}

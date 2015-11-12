@@ -58,7 +58,7 @@ namespace CbxSw.AdamExtensions.ConfigStudio.Products.Inheritance
 			RightsContainer.Controls.Clear();
 			if (DataItem.Rights.Count == 0)
 			{
-				RightsContainer.AddLiteral("No rights available"); // TODO translate
+				RightsContainer.AddLiteral(Translator.Translate("NoRights.Text"));
 				return;
 			}
 			foreach (var fieldInheritanceRight in DataItem.Rights)
@@ -159,7 +159,7 @@ namespace CbxSw.AdamExtensions.ConfigStudio.Products.Inheritance
 		{
 			table.AddGeneric("tr", row =>
 			{
-				row.AddLabelCell("Propagation mode", "lblPropagationMode"); // TODO: translate
+				row.AddLabelCell(Translator.Translate("PropagationMode.Text"), "lblPropagationMode");
 				row.AddControlCell(cell =>
 				{
 					cell.AddControl(new Label(), lblId =>
@@ -182,7 +182,7 @@ namespace CbxSw.AdamExtensions.ConfigStudio.Products.Inheritance
 					itmTable.AddClass("summary-grid");
 					itmTable.AddGeneric("tr", row =>
 					{
-						row.AddLabelCell("Classification"); // TODO translate
+						row.AddLabelCell(Translator.Translate("Classification.Text"));
 						row.AddControlCell(cell =>
 						{
 							cell.AddLiteral(DisplayValueFor(right.Classification));
@@ -190,15 +190,15 @@ namespace CbxSw.AdamExtensions.ConfigStudio.Products.Inheritance
 					});
 					itmTable.AddGeneric("tr", row =>
 					{
-						row.AddLabelCell("User group"); // TODO translate
+						row.AddLabelCell(Translator.Translate("UserGroup.Text"));
 						row.AddControlCell(cell =>
 						{
-							cell.AddLiteral(DisplayValueFor(right.UserGroup)); // TODO translate
+							cell.AddLiteral(DisplayValueFor(right.UserGroup));
 						});
 					});
 					itmTable.AddGeneric("tr", row =>
 					{
-						row.AddLabelCell("Permission"); // TODO translate
+						row.AddLabelCell(Translator.Translate("Permission.Text"));
 						row.AddControlCell(cell =>
 						{
 							cell.AddLiteral(right.Permission.ToString());
@@ -219,7 +219,7 @@ namespace CbxSw.AdamExtensions.ConfigStudio.Products.Inheritance
 
 		private void InitalizeRightsSection(Expandable rightsSection)
 		{
-			rightsSection.Title = "Rights"; // TODO: translate
+			rightsSection.Title = Translator.Translate("RightsSection.Title");
 			rightsSection.Expanded = true;
 			RightsContainer = rightsSection.AddGeneric("div", div =>
 			{

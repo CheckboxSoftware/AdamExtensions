@@ -1,5 +1,4 @@
 <!-- TODO ADD the section in path: studioMenu/groups/add/items/add[@id=FieldManagement]/contexts/add[@id=FieldInheritance to .configStudioMenu -->
-<!-- -->
 <studioMenu priority="100" adapterType="Adam.Web.ConfigStudio.MenuDescriptor, Adam.Web.ConfigStudio">
   <groups>
     <add>
@@ -71,7 +70,6 @@
             <add id="FieldInheritance">
               <actions>
                 <add id="ViewAll" type="Link" url="" />
-                <!-- TODO: <add id="CreateNew" type="Link" requiredRole=".RoleChangeSystemSettings" url="+" />-->
               </actions>
             </add>
 <!-- TODO: STOP adding here -->

@@ -2,41 +2,67 @@
 	More info on how to import xml translations: Adam.Core.CommandLine.exe ImportTranslations -?
 -->
 <translations version="2.0">
-  <studio name="ConfigStudio" deleteStudioTranslationsNotImported="false">
-    <module name="FieldInheritance">
-      <translation name="ViewPage.Purpose">
-        <language name="English">Field inheritance definition</language>
-      </translation>
-      <!--<translation name="SearchPage.Purpose">
-        <language name="English"></language>
-      </translation>
-      <translation name="CreatePage.Purpose">
-        <language name="English">Create a field inheritance definition</language>
-      </translation>
-      <translation name="EditPage.Purpose">
-        <language name="English">Edit field inheritance definition</language>
-      </translation>-->
+	<studio name="ConfigStudio" deleteStudioTranslationsNotImported="false">
+		<module name="FieldInheritance">
+			<translation name="ViewPage.Purpose">
+				<language name="English">Field inheritance definition</language>
+			</translation>
+			<translation name="SearchPage.Purpose">
+				<language name="English"></language>
+			</translation>
+			<translation name="CreatePage.Purpose">
+				<language name="English">Create a field inheritance definition</language>
+			</translation>
+			<translation name="EditPage.Purpose">
+				<language name="English">Edit field inheritance definition</language>
+			</translation>
 
-      <translation name="SearchExpression.DefaultTemplate">
-        <language name="English">All field inheritance definitions</language>
-      </translation>
-      <translation name="SearchExpression.ContainingTemplate">
-        <language name="English">Field inheritance definitions matching '{0}'</language>
-      </translation>
-    </module>
-    <module name="StudioNavigation">
-      <translation name="FieldInheritance.CreateNewText">
-        <language name="English">Create a new field inheritance definition</language>
-      </translation>
-      <translation name="FieldDefinitions.SearchInstruction">
-        <language name="English">Search for field inheritance definitions by its name or label</language>
-      </translation>
-      <translation name="FieldInheritance.ViewAllText">
-        <language name="English">View all field inheritance definitions</language>
-      </translation>
-      <translation name="FieldInheritance.Title">
-        <language name="English">Field inheritance definitions</language>
-      </translation>
-    </module>
-  </studio>
+			<translation name="SearchExpression.DefaultTemplate">
+				<language name="English">All field inheritance definitions</language>
+			</translation>
+			<translation name="SearchExpression.ContainingTemplate">
+				<language name="English">Field inheritance definitions matching '{0}'</language>
+			</translation>
+			<translation name="ColumnIsActive.HeaderText">
+				<language name="English">Is active</language>
+			</translation>
+			<translation name="NoRights.Text">
+				<language name="English">No rights available</language>
+			</translation>
+			<translation name="PropagationMode.Text">
+				<language name="English">Propagation mode</language>
+			</translation>
+			<translation name="Classification.Text">
+				<language name="English">Classification</language>
+			</translation>
+			<translation name="UserGroup.Text">
+				<language name="English">User group</language>
+			</translation>
+			<translation name="Permission.Text">
+				<language name="English">Permission</language>
+			</translation>
+			<translation name="RightsSection.Title">
+				<language name="English">Rights</language>
+			</translation>
+			<translation name="Yes.Text">
+				<language name="English">Yes</language>
+			</translation>
+			<translation name="No.Text">
+				<language name="English">No</language>
+			</translation>
+		</module>
+		<module name="StudioNavigation">
+			<!--
+			<translation name="FieldDefinitions.SearchInstruction">
+				<language name="English">Search for field inheritance definitions by its name or label</language>
+			</translation>
+			-->
+			<translation name="FieldInheritance.ViewAllText">
+				<language name="English">View all field inheritance definitions</language>
+			</translation>
+			<translation name="FieldInheritance.Title">
+				<language name="English">Field inheritance definitions</language>
+			</translation>
+		</module>
+	</studio>
 </translations>

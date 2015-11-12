@@ -49,9 +49,9 @@ namespace CbxSw.AdamExtensions.ConfigStudio
 
 		private static void RegisterInheritanceRoutes()
 		{
-			// HINT: comment out the code below if you don't have a license for Products
+			// HINT: comment the code below if you don't have a license for Products
 			const string routePrefix = "FieldInheritance";
-			// TODO: add pages for searching, adding and editing inheritance
+			// TODO: add edit page
 			Routes.AddPage<InheritanceSearchPage>(routePrefix);
 			Routes.AddPage<InheritanceViewPage>(routePrefix + "/{id}");
 			//Routes.AddPage<Products.Inheritance.InheritanceEditPage>(routePrefix + "/{id}/Edit");
