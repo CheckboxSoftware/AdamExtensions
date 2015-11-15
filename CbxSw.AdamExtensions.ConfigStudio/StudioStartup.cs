@@ -26,30 +26,38 @@ namespace CbxSw.AdamExtensions.ConfigStudio
 
 		public override void Configure(HttpStudioApplication application)
 		{
-			RunsOnceAtStudioStartup();
+			if (ShouldRunStartup())
+			{
+				RunsOnceAtStartup();
+			}
 		}
 
-		private void RunsOnceAtStudioStartup()
+		private static bool ShouldRunStartup()
 		{
 			lock (_lock) // making sure only one thread can run the startup code at a time
 			{
 				if (_hasStarted) // if startup code has ran before: no need to run it again
 				{
-					return;
+					return false;
 				}
 				_hasStarted = true;
-				RegisterRoutes();
+				return true;
 			}
+		}
+
+		private void RunsOnceAtStartup()
+		{
+			RegisterRoutes();
 		}
 
 		protected virtual void RegisterRoutes()
 		{
-			RegisterInheritanceRoutes();
+			// HINT: comment the code below if you don't have a license for Products
+			RegisterProductInheritanceRoutes();
 		}
 
-		private static void RegisterInheritanceRoutes()
+		private static void RegisterProductInheritanceRoutes()
 		{
-			// HINT: comment the code below if you don't have a license for Products
 			const string routePrefix = "FieldInheritance";
 			// TODO: add edit page
 			Routes.AddPage<InheritanceSearchPage>(routePrefix);
