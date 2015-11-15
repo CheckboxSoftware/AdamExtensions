@@ -59,7 +59,6 @@ namespace CbxSw.AdamExtensions.ConfigStudio.Products.Inheritance
 
 		private Column InitializeIsActiveColumn()
 		{
-			var studioTranslator = Translator.GetStudioTranslator(StudioHelper.ResolveStudio(), "Globals");
 			var column = new BooleanColumn
 			{
 				Name = "IsActive",
@@ -67,8 +66,6 @@ namespace CbxSw.AdamExtensions.ConfigStudio.Products.Inheritance
 				Header = Translator.Translate("ColumnIsActive.HeaderText"),
 				Path = "IsActive",
 				CssClass = "column-isactive",
-				TrueText = Translator.Translate("Yes.Text"),
-				FalseText = Translator.Translate("No.Text")
 			};
 			return column;
 		}

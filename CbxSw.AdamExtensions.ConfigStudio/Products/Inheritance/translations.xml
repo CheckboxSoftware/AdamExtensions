@@ -44,12 +44,6 @@
 			<translation name="RightsSection.Title">
 				<language name="English">Rights</language>
 			</translation>
-			<translation name="Yes.Text">
-				<language name="English">Yes</language>
-			</translation>
-			<translation name="No.Text">
-				<language name="English">No</language>
-			</translation>
 		</module>
 		<module name="StudioNavigation">
 			<!--
@@ -62,6 +56,16 @@
 			</translation>
 			<translation name="FieldInheritance.Title">
 				<language name="English">Field inheritance definitions</language>
+			</translation>
+		</module>
+	</studio>
+	<studio name="Adam.Web" deleteStudioTranslationsNotImported="false">
+		<module name="Globals">
+			<translation name="Yes.Text">
+				<language name="English">Yes</language>
+			</translation>
+			<translation name="No.Text">
+				<language name="English">No</language>
 			</translation>
 		</module>
 	</studio>
