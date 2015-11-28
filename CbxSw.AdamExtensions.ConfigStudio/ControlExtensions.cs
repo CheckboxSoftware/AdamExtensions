@@ -65,7 +65,7 @@ namespace CbxSw.AdamExtensions.ConfigStudio
 				SortOptions = new[]
 				{
 					new SortOption {SortOrder = SortOrder.Ascending, SortExpression = $"{identifier}"},
-					new SortOption {SortOrder = SortOrder.Descending, SortExpression = $"{identifier}name desc"}
+					new SortOption {SortOrder = SortOrder.Descending, SortExpression = $"{identifier} desc"}
 				}
 			};
 
