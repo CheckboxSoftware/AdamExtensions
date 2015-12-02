@@ -8,7 +8,7 @@ Project containing several extensions to the ADAM framework to make the life as 
 ```xml
 <studioExtensions>
   <providers>
-	<add type="CbxSw.AdamExtensions.ConfigStudio.StudioStartup, CbxSw.AdamExtensions.ConfigStudio" />
+	<add type="CbxSw.AdamExtensions.ConfigStudio.Startup, CbxSw.AdamExtensions.ConfigStudio" />
   </providers>
 </studioExtensions>
 ```
