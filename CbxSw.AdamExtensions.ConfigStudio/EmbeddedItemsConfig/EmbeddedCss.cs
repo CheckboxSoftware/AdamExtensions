@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Web.UI;
-using Adam.Web.Extensions.UI;
 using Adam.Web.Extensions.UI.Controls;
 using CbxSw.AdamExtensions.ConfigStudio;
 
@@ -42,22 +41,6 @@ namespace CbxSw.AdamExtensions.ConfigStudio
 		{
 			var sheet = _styleSheets[styleSheet];
 			return control.Page.ClientScript.GetWebResourceUrl(sheet.ResourceType, sheet.ResourceName);
-		}
-	}
-
-	public class RequiresCustomStyleSheetAttribute : RequiresStyleSheetAttribute
-	{
-		private readonly Css _styleSheet;
-
-		public RequiresCustomStyleSheetAttribute(Css styleSheet)
-		{
-			_styleSheet = styleSheet;
-		}
-
-		protected override StyleSheet GetStyleSheet()
-		{
-			var styleSheet = StyleSheets.Get(_styleSheet);
-			return styleSheet;
 		}
 	}
 }

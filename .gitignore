@@ -213,3 +213,4 @@ ModelManifest.xml
 
 # ADAM lib files
 **/lib/ADAM/*
+/CbxSw.AdamExtensions.ConfigStudio/CbxSw.AdamExtensions.ConfigStudio.csproj.DotSettings

@@ -1,7 +1,5 @@
 using Adam.Web.Studio;
 using Adam.Web.Studio.Extensibility;
-using Adam.Web.Studio.Routing;
-using CbxSw.AdamExtensions.ConfigStudio.Products.Inheritance;
 
 namespace CbxSw.AdamExtensions.ConfigStudio
 {
@@ -32,6 +30,12 @@ namespace CbxSw.AdamExtensions.ConfigStudio
 			}
 		}
 
+		private static void RunsOnceAtStartup()
+		{
+			CustomRoutes.Register();
+			CustomSearchPlugins.Register();
+		}
+
 		private static bool ShouldRunStartup()
 		{
 			lock (_lock) // making sure only one thread can run the startup code at a time
@@ -43,26 +47,6 @@ namespace CbxSw.AdamExtensions.ConfigStudio
 				_hasStarted = true;
 				return true;
 			}
-		}
-
-		private void RunsOnceAtStartup()
-		{
-			RegisterRoutes();
-		}
-
-		protected virtual void RegisterRoutes()
-		{
-			// HINT: comment the code below if you don't have a license for Products
-			RegisterProductInheritanceRoutes();
-		}
-
-		private static void RegisterProductInheritanceRoutes()
-		{
-			const string routePrefix = "FieldInheritance";
-			// TODO: add edit page
-			Routes.AddPage<InheritanceSearchPage>(routePrefix);
-			Routes.AddPage<InheritanceViewPage>(routePrefix + "/{id}");
-			//Routes.AddPage<Products.Inheritance.InheritanceEditPage>(routePrefix + "/{id}/Edit");
 		}
 	}
 }

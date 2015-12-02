@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CbxSw.AdamExtensions.ConfigStudio</RootNamespace>
     <AssemblyName>CbxSw.AdamExtensions.ConfigStudio</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -20,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\CbxSw.AdamExtensions.ConfigStudio.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -28,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\CbxSw.AdamExtensions.ConfigStudio.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Adam.Core, Version=5.4.0.0, Culture=neutral, PublicKeyToken=63f11f167f68d05b, processorArchitecture=MSIL">
@@ -75,7 +78,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControlExtensions.cs" />
-    <Compile Include="EmbeddedCss.cs" />
+    <Compile Include="EmbeddedItemsConfig\EmbeddedCss.cs" />
+    <Compile Include="EmbeddedItemsConfig\EmbeddedJavaScripts.cs" />
+    <Compile Include="EmbeddedItemsConfig\RequiresCustomStyleSheetAttribute.cs" />
+    <Compile Include="EmbeddedItemsConfig\RequiresEtexScriptAttribute.cs" />
     <Compile Include="Products\Inheritance\FieldInheritanceDefinitionInfo.cs" />
     <Compile Include="Products\Inheritance\FieldInheritanceDefinitionProvider.cs" />
     <Compile Include="Products\Inheritance\InheritanceSearchPage.cs">
@@ -87,8 +93,12 @@
     <Compile Include="Products\Inheritance\InheritanceViewPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="StudioStartup.cs" />
+    <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="App_Start\CustomRoutes.cs" />
+    <Compile Include="App_Start\CustomSearchPlugins.cs" />
+    <Compile Include="Widgets\LoggedOnUsers\LoggedOnUsersPlugin.cs" />
+    <Compile Include="Widgets\LoggedOnUsers\LoggedOnUsersWidget.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Products\Inheritance\translations.xml">
@@ -97,6 +107,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Products\Inheritance\Inheritance.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Widgets\LoggedOnUsers\LoggedOnUsersWidget.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
