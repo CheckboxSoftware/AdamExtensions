@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Adam.Core.Fields;
 using Adam.Core.Search;
 using Adam.Core.Server;
@@ -43,8 +44,14 @@ namespace CbxSw.AdamExtensions.ConfigStudio.Widgets.LoggedOnUsers
 			PagingInfo pagingInfo, IEnumerable<string> properties, string sort, ref bool isLastPage)
 		{
 			var results = SessionInfo.GetSessions(context.AdamApplication);
-			// TODO add paging here
-			return results;
+
+			var pageIndex = pagingInfo.PageIndex;
+			var pageSize = pagingInfo.PageSize;
+
+			var firstIndex = pageIndex * pageSize;
+			// TODO: When using this plugin for more than the widget, you should foresee things like firstIndex being larger than the amount of active sessions.
+
+			return results.Skip(firstIndex).Take(pageSize);
 		}
 
 		/// <summary>
