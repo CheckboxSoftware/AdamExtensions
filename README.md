@@ -15,3 +15,10 @@ Project containing several extensions to the ADAM framework to make the life as 
 From this point on the extensions are active and will be up and running.
 Some translations might be missing or you might want to further configure the extensions so they are better visible.
 For this you can find further steps and documentation on the [wiki](https://github.com/CheckboxSoftware/AdamExtensions/wiki).
+
+# The extensions
+Although there is one code base containing a number of different extensions, you can cherry pick your favourite(s) and use them in your project. Below you can find a list of the currently finished extensions:
+* For ADAM core installation (ConfigStudio, AssetStudio and StudioSelector):
+ * [Active users widget](View-Active-Users)
+* For Products:
+ * [Product inheritance pages](Product-inheritance-pages)
