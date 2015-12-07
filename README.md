@@ -1,5 +1,5 @@
 # AdamExtensions
-Project containing several extensions to the ADAM framework to make the life as ADAM partner a little easier.
+Project containing several extensions to the ADAM framework to make the life as ADAM partner a little easier. Beware that all sources are built using VS2015. So you should either use VisualStudio 2015 to build the sources or the [built releases](https://github.com/CheckboxSoftware/AdamExtensions/releases).
 
 ## How to deploy to Config studio (aka System)
 * download sources and build them
