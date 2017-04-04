@@ -21,8 +21,8 @@ namespace CbxSw.RegisteredAssemblyVersion
 
 		protected override string Description => "Shows the version of the registered assemblies.";
 		protected override string Title => "Assembly versions";
-		protected override string VendorName => "Delaware consulting";
-		protected override string VendorUrl => "http://digital.delawareconsulting.com/";
+		protected override string VendorName => "Checkbox software";
+		protected override string VendorUrl => "http://www.checkboxsoftware.net/";
 
 		protected override MasterResetItem[] GetMasterResetItems()
 		{
